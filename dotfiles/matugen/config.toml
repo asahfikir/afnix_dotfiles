@@ -1,0 +1,13 @@
+[config]
+reload_cmd = "niri msg action reload-config && pkill -SIGUSR2 waybar" # Optional: Reload niri automatically
+
+[templates.niri]
+input_path = "~/.config/niri/config.template.kdl"
+output_path = "~/.config/niri/config.kdl"
+
+[templates.waybar]
+input_path = "~/.config/waybar/style.template.css"
+output_path = "~/.config/waybar/style.css"
+
+copy_permissions = true
+

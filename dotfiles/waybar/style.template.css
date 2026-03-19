@@ -1,0 +1,122 @@
+@define-color background {{ colors.background.default.hex }};
+@define-color surface {{ colors.surface.default.hex }};
+@define-color primary {{ colors.primary.default.hex }};
+@define-color text {{ colors.on_surface.default.hex }};
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  border: none;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+/* 🔥 GROUP CONTAINERS */
+.modules-left,
+.modules-right {
+  /* background: alpha(@surface, 0.7); */
+  padding: 4px 10px;
+  margin: 0 6px;
+}
+
+/* Bagian kiri */ 
+#custom-launcher, #cpu, #memory, #disk, #custom-temp, #niri-window {
+  background: alpha(@surface, 0.9);
+  color: @text;
+  padding: 0 18px;
+  border-radius: 120px 14px 164px 15px;
+  border: 1px solid alpha(@primary, 0.15);
+}
+
+/* bagian kanan */
+#network, #pulseaudio, #battery, #tray, #clock, #custom-power {
+  background: alpha(@surface, 0.9);
+  color: @text;
+  padding: 0 18px;
+  border-radius: 14px 120px 15px 164px;
+  border: 1px solid alpha(@primary, 0.15);
+}
+
+#cpu, #memory, #disk {
+  opacity: 0.6;
+}
+
+#cpu, #memory, #disk, #network, #battery {
+  min-width: 60px;
+}
+
+#battery, #custom-temp {
+  opacity: 0.9;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+/* 🧩 Workspaces */
+#workspaces {
+  background: transparent;
+  margin-left: 4px;
+}
+
+#workspaces button {
+  padding: 4px 10px;
+  margin: 0 2px;
+  border-radius: 10px;
+  color: @text;
+  background: alpha(@primary, 0.25);
+}
+
+/* Active workspace */
+#workspaces button.active {
+  background: @primary;
+  color: @background;
+  box-shadow: 0 0 6px alpha(@primary, 0.6);
+}
+
+/* Hover */
+#workspaces button:hover {
+  background: alpha(@primary, 0.55);
+}
+
+/* 🪶 Center window (floating text look) */
+#window {
+  color: @text;
+  opacity: 0.8;
+}
+
+#pulseaudio {
+  transition: all 0.2s ease;
+}
+
+#pulseaudio:hover {
+  color: @primary;
+}
+
+/* Make power slightly more prominent */
+#custom-power {
+  color: @primary;
+  font-weight: bold;
+}
+
+/* Notification muted state (optional visual cue) */
+#custom-notifications {
+  opacity: 0.8;
+}
+
+#temperature {
+  color: @text;
+}
+
+#temperature.critical {
+  color: @primary;
+  font-weight: bold;
+}
+
+/* subtle hover state */
+.modules-right:hover,
+.modules-left:hover {
+  border: 1px solid alpha(@primary, 0.4);
+}

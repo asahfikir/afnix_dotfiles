@@ -1,0 +1,107 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 4,
+  "height": 36,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  "modules-left": [
+    "custom/launcher",
+    "cpu",
+    "custom/temp",
+    "memory",
+    "disk",
+    "niri/window"
+  ],
+
+  "modules-center": [
+    "niri/workspaces"
+  ],
+
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "battery",
+    "tray",
+    "clock",
+    "custom/power",
+  ],
+
+  "custom/launcher": {
+    "format": "",
+    "on-click": "fuzzel"
+  },
+
+  "niri/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+
+  "niri/window": {
+    "format": "{title}",
+    "max-length": 50
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G",
+    "interval": 2
+  },
+
+  "disk": {
+    "format": " {percentage_used}%",
+    "path": "/"
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 connected",
+    "format-disconnected": "⚠"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["","","","",""]
+  },
+
+  "clock": {
+    "format": "{:%A, %d %b %Y %H:%M}"
+  },
+
+  "tray": {
+    "spacing": 8
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": ["", "", ""],
+    "on-click": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C"
+  },
+
+  "custom/temp": {
+    "exec": "sensors | grep 'Package id 0' | awk '{print $4}'",
+    "interval": 2,
+    "format": " {}"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout -p layer-shell"
+  }
+}
