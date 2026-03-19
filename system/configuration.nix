@@ -44,6 +44,9 @@
     ];
   };
 
+  # Timezone
+  time.timeZone = "Asia/Jakarta";
+
   # XDG Portal fix for the warning
   # Essential for Wayland Compositors (Niri)
   services.dbus.enable = true;
