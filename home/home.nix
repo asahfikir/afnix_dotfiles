@@ -26,10 +26,13 @@ in
 
     # GUI Apps
     firefox
-    foot # Terminal emulator (lightweight, good for templating)
+    microsoft-edge
+    chromium
     alacritty
     thunar
-    
+    discord
+    discordo
+
     # CLI Tools
     helix
     neovim

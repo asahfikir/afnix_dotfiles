@@ -1,7 +1,7 @@
-@define-color background #15130b;
-@define-color surface #15130b;
-@define-color primary #dbc66f;
-@define-color text #e8e2d4;
+@define-color background #1a1110;
+@define-color surface #1a1110;
+@define-color primary #ffb4a8;
+@define-color text #f1dfdb;
 
 * {
   font-family: "JetBrainsMono Nerd Font";

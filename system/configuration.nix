@@ -30,7 +30,14 @@
   };
 
   # Networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [ pkgs.networkmanager-openvpn ];
+  };
+  services.blueman.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Hardware Graphics (Renamed from opengl)
   nixpkgs.config.allowUnfree = true;
@@ -83,10 +90,21 @@
   # User Account
   users.users.fikri = { 
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; 
+    extraGroups = [ "wheel" "networkmanager" "podman" ]; 
     shell = pkgs.fish;
   };
 
+  # Let's setup docker here
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+    };
+  };
+
+  # Manage fonts
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
@@ -95,19 +113,33 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
+    # Text Editor
     vim 
+    micro
+
+    # CLI Niceties
     wget 
     git
     curl
-    fuzzel # app launcher
-    slack
-    alsa-utils
+    jq
+    fastfetch
     starship
+    alsa-utils
     psmisc
     lm_sensors # untuk sensor temperatur
     gh # for github cli
-
+    lazygit # cause I'm lazy also
+    pokemon-colorscripts
     swww # untuk ganti2 wallpaper
+
+    # Development
+    uv # for python, I'm still torn between uv and nix-shell
+
+    # Apps
+    fuzzel # app launcher
+    slack
+    openvpn
+
   ];
 
   # Nix Settings

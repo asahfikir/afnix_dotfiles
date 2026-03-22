@@ -43,7 +43,7 @@ input {
 // =============================
 binds {
     // Apps
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "fuzzel"; }
     Mod+T { spawn "alacritty"; }
     Mod+Space { spawn "fuzzel"; }
 
@@ -120,13 +120,13 @@ layout {
 
     // Colors
     focus-ring {
-        active-color "#dbc66f"
-        inactive-color "#4b4739"
+        active-color "#ffb4a8"
+        inactive-color "#534341"
     }
     
     border {
-        active-color "#dbc66f"
-        inactive-color "#4b4739"
+        active-color "#ffb4a8"
+        inactive-color "#534341"
         width 2
     }
 }

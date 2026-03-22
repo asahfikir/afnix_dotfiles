@@ -43,7 +43,7 @@ input {
 // =============================
 binds {
     // Apps
-    Mod+Return { spawn "foot"; }
+    Mod+Return { spawn "fuzzel"; }
     Mod+T { spawn "alacritty"; }
     Mod+Space { spawn "fuzzel"; }
 
